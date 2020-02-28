@@ -1,0 +1,56 @@
+using System;
+
+namespace exercise1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int num = 0, rnd = 0;
+            int a = 0, b = 0, c = 0, d = 0;
+            Random RND = new Random();
+            rnd = Convert.ToInt32(RND.Next(1, 7)) + Convert.ToInt32(RND.Next(1, 7)) * 10 + Convert.ToInt32(RND.Next(1, 7)) * 100 + Convert.ToInt32(RND.Next(1, 7)) * 1000;
+
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine(rnd);
+
+                num = Convert.ToInt32(Console.ReadLine());
+                a = num / 1000;
+                b = num % 1000 / 100;
+                c = num % 1000 % 100 / 10;
+                d = num % 1000 % 100 % 10;
+
+                if (a == rnd / 1000)
+                    Console.Write("+");
+                else if (a == rnd / 1000 || a == rnd % 1000 / 100 || a == rnd % 1000 % 100 / 10 || a == rnd % 1000 % 100 % 10)
+                    Console.Write("-");
+                else Console.Write(" ");
+
+                if (b == rnd % 1000 / 100)
+                    Console.Write("+");
+                else if (b == rnd / 1000 || b == rnd % 1000 / 100 || b == rnd % 1000 % 100 / 10 || b == rnd % 1000 % 100 % 10)
+                    Console.Write("-");
+                else Console.Write(" ");
+
+                if (c == rnd % 1000 % 100 / 10)
+                    Console.Write("+");
+                else if (c == rnd / 1000 || c == rnd % 1000 / 100 || c == rnd % 1000 % 100 / 10 || c == rnd % 1000 % 100 % 10)
+                    Console.Write("-");
+                else Console.Write(" ");
+
+                if (d == rnd % 1000 % 100 % 10)
+                    Console.Write("+");
+                else if (d == rnd / 1000 || d == rnd % 1000 / 100 || d == rnd % 1000 % 100 / 10 || d == rnd % 1000 % 100 % 10)
+                    Console.Write("-");
+                else Console.Write(" ");
+
+                if (rnd == num)
+                {
+                    Console.Write("U are right!");
+                    break;
+                }
+            }
+        }
+    }
+}
